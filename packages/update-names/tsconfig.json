@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "composite": true,
     "target": "ESNext",
     "allowJs": false,
     "skipLibCheck": false,
@@ -11,5 +12,5 @@
     "moduleResolution": "Node",
     "isolatedModules": true,
   },
-  "include": ["./**/*"]
+  "include": ["./src"]
 }
