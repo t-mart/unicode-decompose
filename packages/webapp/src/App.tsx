@@ -4,7 +4,7 @@ import { Decomposition } from "./Decomposition";
 
 export function App() {
   const [inputText, setInputText] = useState(
-    new URL(window.location.href).searchParams.get("text") || ""
+    new URL(window.location.href).searchParams.get("text") || "Z̵̖̟̋͋̈a̸̛͚͙̽l̸̗͖̏g̶͎̋o̷̩͔̱͑̚"
   );
 
   const onInput = (e: Event) => {

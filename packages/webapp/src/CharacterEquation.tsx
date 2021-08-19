@@ -20,7 +20,13 @@ export function CharacterEquation(props: CharacterComponentsProps) {
 
   const combined = combinedArray.join("");
 
-  const terms = characters
+  const lhs = (
+    <EquationTerm>
+      <div class="text-5xl font-bold">{combined}</div>
+    </EquationTerm>
+  )
+
+  const rhs = characters
     .map((character) => (
       <EquationTerm >
         <div class="font-mono">U+{character.s.codePointAt(0)?.toString(16).toUpperCase().padStart(4, "0")}</div>
@@ -38,11 +44,9 @@ export function CharacterEquation(props: CharacterComponentsProps) {
 
   return (
     <div class="flex overflow-auto gap-2 items-stretch">
-      <EquationTerm>
-        <div class="text-5xl">{combined}</div>
-      </EquationTerm>
+      {lhs}
       <EquationOperator character="=" />
-      {terms}
+      {rhs}
     </div>
   );
 }
