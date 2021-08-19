@@ -2,10 +2,14 @@
   "compilerOptions": {
     "composite": true,
     "target": "ESNext",
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
+    ],
     "allowJs": false,
     "skipLibCheck": false,
-    "esModuleInterop": false,
+    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
@@ -18,5 +22,8 @@
     "jsxFactory": "h",
     "jsxFragmentFactory": "Fragment"
   },
-  "include": ["./src"]
+  "include": [
+    "./src/**/*",
+    "./src/**/*.json"
+  ]
 }

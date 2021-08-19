@@ -1,7 +1,15 @@
 {
   "name": "root",
+  "version": "0.0.0",
   "private": true,
+  "scripts": {
+    "update-names": "npx update-names packages/webapp/src/data/codepoint-names.json"
+  },
   "devDependencies": {
-    "lerna": "^4.0.0"
-  }
+    "update-names": "0.0.0"
+  },
+  "workspaces": [
+    "packages/update-names",
+    "packages/webapp"
+  ]
 }

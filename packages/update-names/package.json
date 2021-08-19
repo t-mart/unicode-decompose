@@ -5,16 +5,24 @@
   "author": "Tim Martin <tim@timmart.in>",
   "homepage": "",
   "license": "ISC",
-  "type": "module",
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "build": "tsc"
   },
+  "files": [
+    "./index.ts"
+  ],
+  "main": "./index.ts",
+  "bin": "./index.ts",
   "dependencies": {
-    "got": "^11.8.2"
+    "got": "^11.8.2",
+    "yargs": "^17.1.1"
   },
   "devDependencies": {
     "@types/got": "^9.6.12",
-    "@types/node": "^16.6.1",
+    "@types/node": "^16.6.2",
+    "@types/yargs": "^17.0.2",
+    "ts-node": "^10.2.1",
+    "tslib": "^2.3.1",
     "typescript": "^4.3.5"
   }
 }
