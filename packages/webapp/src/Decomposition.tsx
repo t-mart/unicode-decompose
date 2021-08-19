@@ -11,7 +11,7 @@ function groupFromText(text: string) {
   const groups: Character[][] = [];
   let thisGroup: Character[] = [];
 
-  for (const character of text.normalize("NFD").split("")) {
+  for (const character of Array.from(text.normalize("NFD"))) {
     const codepoint = character.codePointAt(0)!;
     const { isCombiner, name } = codepointNames[codepoint.toString()];
     if (!isCombiner) {
