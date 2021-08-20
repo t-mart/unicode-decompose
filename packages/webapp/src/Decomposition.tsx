@@ -1,24 +1,24 @@
-import { Character } from "./Character";
+import { UnicodeCharacter } from "./UnicodeCharacter";
 import { CharacterEquation } from "./CharacterEquation";
-import { codepointNames } from "./CodepointNames";
 
 /**
- *
- * @param text Input string to break up into character groups
- * @returns
+ * Break up a string into groups that consist of a codepoint and any trailing "combiner" codepoints.
+ * A combiner codepoint is one that is rendered in the same space as the character it's attached to,
+ * such as the tilde in ñ.
+ * @param text Input string to break up into groups
+ * @returns CharacterEquation components for each of the groups found.
  */
 function groupFromText(text: string) {
-  const groups: Character[][] = [];
-  let thisGroup: Character[] = [];
+  const groups: UnicodeCharacter[][] = [];
+  let thisGroup: UnicodeCharacter[] = [];
 
   for (const character of Array.from(text.normalize("NFD"))) {
-    const codepoint = character.codePointAt(0)!;
-    const { isCombiner, name } = codepointNames[codepoint.toString()];
-    if (!isCombiner) {
+    const unicodeChar = UnicodeCharacter.lookupByString(character);
+    if (!unicodeChar.isCombiner) {
       groups.push(thisGroup);
-      thisGroup = [{ s: character, isCombiner: false, name }];
+      thisGroup = [unicodeChar];
     } else {
-      thisGroup.push({ s: character, isCombiner: true, name });
+      thisGroup.push(unicodeChar);
     }
   }
   groups.push(thisGroup);
