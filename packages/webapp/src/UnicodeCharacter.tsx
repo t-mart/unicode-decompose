@@ -14,8 +14,8 @@ export class UnicodeCharacter {
   }
 
   static lookupByString(str: string) {
-    if (str.length > 1) {
-      throw new Error(`UnicodeCharacter object requires 1-character-length string`);
+    if (Array.from(str).length > 1) {
+      throw new Error(`UnicodeCharacter object can only be made from a single character`);
     }
     return this.lookupByCodepoint(str.codePointAt(0)!);
   }
